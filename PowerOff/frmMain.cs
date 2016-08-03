@@ -133,6 +133,14 @@ namespace PowerOff
             var progress = (int)((tsRemain.TotalSeconds / totalSeconds) * 100.0);
             tspbRemain.Value = progress < 0 ? 0 : progress;
 
+            if (tsRemain < new TimeSpan(0, 1, 0))
+            {
+                nicoMain.BalloonTipText = "系统将在" + tsRemain.Seconds + "秒后" + cbxAction.Text + "。";
+                nicoMain.BalloonTipIcon = ToolTipIcon.Warning;
+                nicoMain.BalloonTipTitle = "警告！";
+                nicoMain.ShowBalloonTip(3000);
+            }
+
             if (expired)
             {
                 var process = action == ActionType.Sleep ? "rundll32.exe" : "shutdown.exe";
@@ -186,7 +194,7 @@ namespace PowerOff
 
         private void btnAction_Click(object sender, EventArgs e)
         {
-            if (btnAction.Text == "确定")
+            if (btnAction.Text == "启动")
             {
                 btnAction.Text = "取消";
 
@@ -214,7 +222,7 @@ namespace PowerOff
             }
             else
             {
-                btnAction.Text = "确定";
+                btnAction.Text = "启动";
 
                 tmMain.Enabled = false;
                 cbxAction.Enabled = true;
@@ -224,6 +232,11 @@ namespace PowerOff
                 tspbRemain.Value = 0;
                 tspbRemain.Width = stsMain.Width - 5;
                 tslblRemain.Text = "";
+
+                nicoMain.BalloonTipText = "定时动作被用户取消。";
+                nicoMain.BalloonTipIcon = ToolTipIcon.Info;
+                nicoMain.BalloonTipTitle = "注意！";
+                nicoMain.ShowBalloonTip(1000);
             }
         }
     }

@@ -118,7 +118,7 @@
             this.btnAction.Name = "btnAction";
             this.btnAction.Size = new System.Drawing.Size(123, 36);
             this.btnAction.TabIndex = 6;
-            this.btnAction.Text = "确定";
+            this.btnAction.Text = "启动";
             this.btnAction.UseVisualStyleBackColor = true;
             this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
             // 
