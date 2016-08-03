@@ -42,6 +42,8 @@
             this.tsmiHide = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tmMain = new System.Windows.Forms.Timer(this.components);
+            this.cbxMinimize = new System.Windows.Forms.CheckBox();
+            this.cbxAutostart = new System.Windows.Forms.CheckBox();
             this.stsMain.SuspendLayout();
             this.cmsMain.SuspendLayout();
             this.SuspendLayout();
@@ -51,23 +53,23 @@
             this.cbxAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxAction.FormattingEnabled = true;
             this.cbxAction.Items.AddRange(new object[] {
-            "休眠",
+            "睡眠",
             "关机",
             "注销",
             "重启"});
-            this.cbxAction.Location = new System.Drawing.Point(275, 34);
+            this.cbxAction.Location = new System.Drawing.Point(275, 31);
             this.cbxAction.Name = "cbxAction";
-            this.cbxAction.Size = new System.Drawing.Size(50, 21);
+            this.cbxAction.Size = new System.Drawing.Size(50, 20);
             this.cbxAction.TabIndex = 3;
             // 
             // dtpTime
             // 
             this.dtpTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dtpTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTime.Location = new System.Drawing.Point(126, 34);
+            this.dtpTime.Location = new System.Drawing.Point(126, 31);
             this.dtpTime.Name = "dtpTime";
             this.dtpTime.ShowUpDown = true;
-            this.dtpTime.Size = new System.Drawing.Size(143, 20);
+            this.dtpTime.Size = new System.Drawing.Size(143, 21);
             this.dtpTime.TabIndex = 0;
             // 
             // stsMain
@@ -75,7 +77,7 @@
             this.stsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tspbRemain,
             this.tslblRemain});
-            this.stsMain.Location = new System.Drawing.Point(0, 181);
+            this.stsMain.Location = new System.Drawing.Point(0, 165);
             this.stsMain.Name = "stsMain";
             this.stsMain.Size = new System.Drawing.Size(394, 23);
             this.stsMain.SizingGrip = false;
@@ -104,17 +106,17 @@
             this.cbxTimeMode.Items.AddRange(new object[] {
             "就在",
             "再等"});
-            this.cbxTimeMode.Location = new System.Drawing.Point(70, 34);
+            this.cbxTimeMode.Location = new System.Drawing.Point(70, 31);
             this.cbxTimeMode.Name = "cbxTimeMode";
-            this.cbxTimeMode.Size = new System.Drawing.Size(50, 21);
+            this.cbxTimeMode.Size = new System.Drawing.Size(50, 20);
             this.cbxTimeMode.TabIndex = 5;
             this.cbxTimeMode.SelectedIndexChanged += new System.EventHandler(this.cbxTimeMode_SelectedIndexChanged);
             // 
             // btnAction
             // 
-            this.btnAction.Location = new System.Drawing.Point(136, 100);
+            this.btnAction.Location = new System.Drawing.Point(136, 92);
             this.btnAction.Name = "btnAction";
-            this.btnAction.Size = new System.Drawing.Size(123, 39);
+            this.btnAction.Size = new System.Drawing.Size(123, 36);
             this.btnAction.TabIndex = 6;
             this.btnAction.Text = "确定";
             this.btnAction.UseVisualStyleBackColor = true;
@@ -133,12 +135,12 @@
             this.tsmiHide,
             this.tsmiExit});
             this.cmsMain.Name = "cmsMain";
-            this.cmsMain.Size = new System.Drawing.Size(127, 48);
+            this.cmsMain.Size = new System.Drawing.Size(130, 48);
             // 
             // tsmiHide
             // 
             this.tsmiHide.Name = "tsmiHide";
-            this.tsmiHide.Size = new System.Drawing.Size(126, 22);
+            this.tsmiHide.Size = new System.Drawing.Size(129, 22);
             this.tsmiHide.Tag = "";
             this.tsmiHide.Text = "显示/隐藏";
             this.tsmiHide.Click += new System.EventHandler(this.tsmiHide_Click);
@@ -146,7 +148,7 @@
             // tsmiExit
             // 
             this.tsmiExit.Name = "tsmiExit";
-            this.tsmiExit.Size = new System.Drawing.Size(126, 22);
+            this.tsmiExit.Size = new System.Drawing.Size(129, 22);
             this.tsmiExit.Text = "退出";
             this.tsmiExit.Click += new System.EventHandler(this.tsmiExit_Click);
             // 
@@ -155,11 +157,33 @@
             this.tmMain.Interval = 1000;
             this.tmMain.Tick += new System.EventHandler(this.tmMain_Tick);
             // 
+            // cbxMinimize
+            // 
+            this.cbxMinimize.AutoSize = true;
+            this.cbxMinimize.Location = new System.Drawing.Point(13, 146);
+            this.cbxMinimize.Name = "cbxMinimize";
+            this.cbxMinimize.Size = new System.Drawing.Size(96, 16);
+            this.cbxMinimize.TabIndex = 7;
+            this.cbxMinimize.Text = "启动时最小化";
+            this.cbxMinimize.UseVisualStyleBackColor = true;
+            // 
+            // cbxAutostart
+            // 
+            this.cbxAutostart.AutoSize = true;
+            this.cbxAutostart.Location = new System.Drawing.Point(286, 146);
+            this.cbxAutostart.Name = "cbxAutostart";
+            this.cbxAutostart.Size = new System.Drawing.Size(96, 16);
+            this.cbxAutostart.TabIndex = 8;
+            this.cbxAutostart.Text = "自动开始任务";
+            this.cbxAutostart.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 204);
+            this.ClientSize = new System.Drawing.Size(394, 188);
+            this.Controls.Add(this.cbxAutostart);
+            this.Controls.Add(this.cbxMinimize);
             this.Controls.Add(this.btnAction);
             this.Controls.Add(this.cbxTimeMode);
             this.Controls.Add(this.stsMain);
@@ -170,6 +194,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "定时关机小程序";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -195,6 +220,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiHide;
         private System.Windows.Forms.ToolStripMenuItem tsmiExit;
         private System.Windows.Forms.ToolStripStatusLabel tslblRemain;
+        private System.Windows.Forms.CheckBox cbxMinimize;
+        private System.Windows.Forms.CheckBox cbxAutostart;
     }
 }
 
